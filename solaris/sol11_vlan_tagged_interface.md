@@ -1,4 +1,4 @@
-'Solaris 11 interface config
+# Solaris 11 interface config
 
 ''Assuming that the physical interfaces net3 and net7 are patched and their ports support a given vlan (1205 in this case) we can do the following:
 
