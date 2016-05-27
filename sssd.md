@@ -79,3 +79,19 @@ in /etc/pam.d/login and /etc/pam.d/sshd add line
 ```
 account    required     pam_access.so
 ```
+
+# Control user/group access using pam_access
+
+in /etc/security/access.conf 
+
+```
+#
+
+# allow only the groups listed
++ : admin : ALL
++ : root : ALL
++ : group1 : ALL
+
+# default deny
+- : ALL : ALL
+```
