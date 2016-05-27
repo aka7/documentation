@@ -1,6 +1,7 @@
-sample exmaple for using ldap and sssd with PAM
+# sample example for using ldap and sssd with PAM
 
-#Install sssd and authconfig if they aren’t already. The packages you’ll want are:
+#Install sssd and authconfig if they aren’t already. 
+The packages are:
 ```
 sssd-client
 sssd-common
