@@ -101,5 +101,5 @@ in /etc/security/access.conf
 run in foreground in debug mode
 
 ```
-sssd i -d 7
+sssd -i -d 7
 ```
