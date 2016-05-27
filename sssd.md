@@ -96,3 +96,10 @@ in /etc/security/access.conf
 # default deny
 - : ALL : ALL
 ```
+
+# Debuging sssd
+run in foreground in debug mode
+
+```
+sssd i -d 7
+```
