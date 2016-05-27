@@ -1,7 +1,7 @@
 sample exmaple for using ldap and sssd with PAM
 
 #Install sssd and authconfig if they aren’t already. The packages you’ll want are:
-
+```
 sssd-client
 sssd-common
 sssd-common-pac
@@ -10,11 +10,11 @@ sssd-proxy
 python-sssdconfig
 authconfig
 authconfig-gtk
-
+```
 
 
 #config sssd.conf
-
+```
 cat /etc/sssd/sssd.conf 
 [domain/LDAP]
 auth_provider = ldap
@@ -38,10 +38,11 @@ ldap_tls_reqcert = demand
 ldap_uri = ldaps://ldap.exmaple.com/
 ldap_user_search_base = ou=People,dc=example,dc=com?sub?(&(objectClass=posixAccount)(!(employeeType=disabled))(ou=IT))
 min_id = 1
-
+````
 
 # openldap.conf
-cat /etc/openldap/ldap.conf 
+cat /etc/openldap/ldap.conf
+``` 
 #
 # LDAP Defaults
 #
@@ -70,10 +71,11 @@ sudo_provider = ldap
 config_file_version = 2
 domains = LDAP
 services = nss,pam,sudo
-
+```
 
 
 # PAM
 in /etc/pam.d/login and /etc/pam.d/sshd add line 
-
+```
 account    required     pam_access.so
+```
