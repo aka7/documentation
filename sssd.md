@@ -39,7 +39,7 @@ ldap_tls_reqcert = demand
 ldap_uri = ldaps://ldap.exmaple.com/
 ldap_user_search_base = ou=People,dc=example,dc=com?sub?(&(objectClass=posixAccount)(!(employeeType=disabled))(ou=IT))
 min_id = 1
-````
+```
 
 # openldap.conf
 cat /etc/openldap/ldap.conf
