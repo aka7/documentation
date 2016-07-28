@@ -1,8 +1,9 @@
 
-# partition config for kickstart, on 8 disk system, software raid and lvm 
+# partition config for kickstart, use in Katelo
 just for my reference, disk label may change
 some examples of katello partition templates for different disks
 
+## on 8 disk system, software raid and lvm 
 ````
 # System bootloader configuration
 zerombr
@@ -47,7 +48,7 @@ logvol /home --fstype=ext4 --vgname=rootvg --size=4096  --name=home
 volgroup datavg pv.03 pv.04
 ````
 
-## Two disk part config
+## Two disk config, sortware raid and lvm
 ````
 # System bootloader configuration
 clearpart --all --drives=sda,sdb
@@ -110,7 +111,7 @@ logvol /data --fstype=ext4 --vgname=datavg --name=data --grow --size=1024
 <% end -%>
 ````
 
-### 2 disks NO MIRROR
+### 2 disks no raid
 ````
 # System bootloader configuration
 clearpart --all --drives=sda,sdb
