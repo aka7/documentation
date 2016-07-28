@@ -1,7 +1,9 @@
 
-# partition config for kickstart, use in Katelo
-just for my reference, disk label may change
-some examples of katello partition templates for different disks
+# partition config for kickstart
+just for my reference, mainly used in katelo system but can be used anywhere I guess.
+Disk label may change
+
+These examples for katello partition templates for different number of disks
 
 ## on 8 disk system, software raid and lvm 
 ````
