@@ -1,5 +1,5 @@
 ## Kickstart config template used in katello
-
+````
 <%#
 kind: provision
 name: Kickstart - BareMetal
@@ -172,4 +172,4 @@ wget -q -O /dev/null --no-check-certificate <%= foreman_url %>
 exit 0
 
 <%= section_end -%>
-
+````
