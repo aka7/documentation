@@ -29,7 +29,7 @@ dladm create-vlan -l aggr0 -v 250 vlan250
 ipadm create-ip vlan250
 ipadm create-addr -a local=10.10.4.14/23 vlan250
 ```` 
-If the GZ needs a management interface it does not need to VLAN tag the traffic so you can create the address on the mgmt0 link.
+If the GZ needs a management interface and it does not need to VLAN tag the traffic,  you can create the address on the mgmt0 link without vlan tagging
 
 ```` 
 ipadm create-ip mgmt0
