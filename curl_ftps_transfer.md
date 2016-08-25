@@ -1,4 +1,4 @@
-# uploading a file using using curl using ftps on port 8022
+# uploading a file using curl using ftps on port 8022
 confirued vsftpd for tls conenction, 
 following command is useful to test the tls connection and upload a file using curl
 ````
