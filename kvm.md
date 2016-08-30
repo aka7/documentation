@@ -41,7 +41,7 @@ now configure the interface on vm.
 
 For new macvtap interface types, the attach-interface doesn't understand --type direct. so you can create a interface like above and run virsh edit and change it settings to type direct, like so.
 
-
+see http://virt.kernelnewbies.org/MacVTap for details on macvtap
 
 macvtap interface for aktest01 below
 
@@ -110,4 +110,49 @@ To remove the interface
 ````
 # virsh detach-interface aktest01 --type direct --mac 00:16:3e:1b:c9:c7
 Interface detached successfully
+````
+
+
+
+## vish install example
+
+This is for that use a bridge interface
+
+````
+virt-install \
+--name <VM-NAME> \
+--ram <RAM-SIZE> \
+--vcpus=<vCPUs> \
+--location=http://<katelo_address>/pulp/repos/SNS/Production/RHEL6_5-Standard/content/dist/rhel/server/6/6.5/x86_64/kickstart \
+--os-type=linux \
+--os-variant=rhel6 \
+--virt-type kvm \
+--watchdog action=none \
+--disk path=/dev/datavg/<VM-NAME>-root,bus=virtio,cache=writethrough,sparse=false \
+--boot hd,network \
+--network bridge=<HOST-BRIDGE>  \
+--nographics \
+--mac=<VM-MAC-ADDRESS>
+--extra-args="auto text console=tty1 console=ttyS0,115200 ks=http://<katelo_address>/unattended/provision?static=yes ksdevice=bootif network kssendmac ip=<VM-IP> netmask=<VM-NETMASK> gateway=<VM-GATEWAY> dns=<DNS_SERVER_IP>"
+````
+
+This is for servers that use macvtap in vepa mode
+
+````
+virt-install \
+--name <VM-NAME> \
+--ram <RAM-SIZE> \
+--vcpus=<vCPUs> \
+--location=http://<katelo_address>/pulp/repos/SNS/Production/RHEL6_5-Standard/content/dist/rhel/server/6/6.5/x86_64/kickstart \
+--os-type=linux \
+--os-variant=rhel6 \
+--virt-type kvm \
+--watchdog action=none \
+--disk path=/dev/datavg/<VM-NAME>-root,bus=virtio,cache=writethrough,sparse=false \
+--boot hd,network \
+--network type=direct,source=<HOST-BRIDGE>,source_mode=vepa \
+--nographics \
+--autostart \
+--mac=<VM-MAC-ADDRESS>
+--extra-args="auto text console=tty1 console=ttyS0,115200 ks=http://<katelo_address>/unattended/provision?static=yes ksdevice=bootif network kssendmac ip=<VM-IP> netmask=<VM-NETMASK> gateway=<VM-GATEWAY> dns=<DNS_SERVER_IP>"
 ````
