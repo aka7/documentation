@@ -1,4 +1,4 @@
-# sample example for using ldap and sssd with PAM
+# sample example ldap client to use System Security Services Daemon (SSSD)  
 
 # Install sssd and authconfig if they aren’t already. 
 The packages are:
@@ -74,15 +74,17 @@ domains = LDAP
 services = nss,pam,sudo
 ```
 
+## Enable the SSSD service:
+````
+$ authconfig --update --enablesssd --enablesssdauth
+````
 
+# Control user/group access using pam_access
 # PAM
 in /etc/pam.d/login and /etc/pam.d/sshd add line 
 ```
 account    required     pam_access.so
 ```
-
-# Control user/group access using pam_access
-
 in /etc/security/access.conf 
 
 ```
