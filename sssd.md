@@ -97,6 +97,27 @@ in /etc/security/access.conf
 - : ALL : ALL
 ```
 
+## change nsswitch to use sss for everything you want to  go to ldap
+````
+$ cat /etc/nsswitch.conf
+passwd:     files sss
+shadow:     files sss
+group:      files sss
+sudoers:    files sss
+hosts:      files dns
+bootparams: files
+ethers:     files
+netmasks:   files
+networks:   files
+protocols:  files
+rpc:        files
+services:   files
+netgroup:   files
+publickey:  files
+automount:  files sss
+aliases:    files
+````
+
 # Debuging sssd
 run in foreground in debug mode
 
