@@ -45,3 +45,12 @@ git reset --hard origin/$branch
 
 done
 ```
+
+git squash commits into one commit, 2 commits squash example
+```
+git log --oneline
+git rebase -i HEAD~2
+git push origin --delete $BRANCHNAME
+git push origin $BRANCHNAME
+
+```
